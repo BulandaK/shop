@@ -13,12 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Baza dla testów integracyjnych: pełny kontekst Springa + MockMvc + PostgreSQL z Testcontainers.
- * <p>
- * Testy celowo NIE są {@code @Transactional}: Envers zapisuje historię dopiero przy commicie,
- * a rollback testu zostawiłby ją pustą. Zamiast tego baza jest czyszczona przed każdym testem.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @Import(TestcontainersConfiguration.class)
