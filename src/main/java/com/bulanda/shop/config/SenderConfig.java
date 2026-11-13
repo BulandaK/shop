@@ -1,6 +1,6 @@
 package com.bulanda.shop.config;
 
-import com.bulanda.shop.notification.NotificationSender;
+import com.bulanda.shop.sender.NotificationSender;
 import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

@@ -1,6 +1,6 @@
 package com.bulanda.shop.service;
 
-import com.bulanda.shop.notification.NotificationSender;
+import com.bulanda.shop.sender.NotificationSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
