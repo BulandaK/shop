@@ -17,5 +17,34 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    image: redis:7.4
+    container_name: shop-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redisinsight:
+    image: redis/redisinsight:2.60
+    container_name: shop-redisinsight
+    restart: unless-stopped
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight-data:/data
+    depends_on:
+      redis:
+        condition: service_healthy
+
 volumes:
   postgres-data:
+  redis-data:
+  redisinsight-data:
